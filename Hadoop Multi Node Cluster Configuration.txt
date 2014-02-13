@@ -273,3 +273,7 @@ Step-10
 hadoop dfsadmin -report (detail system report)
 hadoop jar /usr/local/hadoop/hadoop-examples-1.2.1.jar pi 10 10 (MapReduce Job testing)
 hadoop dfs -h (all possible commands here)
+
+Hadoop disable safemode
+
+hadoop dfsadmin -safemode leave
