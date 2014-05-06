@@ -1,0 +1,1 @@
+sudo arp -d -a
