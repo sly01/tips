@@ -1,3 +1,5 @@
+Create a Dockefile and add the those lines;
+----------------------------------
 FROM ubuntu:12.04
 
 RUN apt-get update
@@ -11,7 +13,7 @@ EXPOSE 80
 
 ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["-D", "FOREGROUND"]
-
+------------------------------------
 
 then execute those commands
 
