@@ -43,3 +43,11 @@ And the containers docker restart <container-id>
 To access to running container as a daemon, you will get the container id with docker ps --no-trunc
 
 Then lxc-attach -n <container id> (which is comming from docker ps --no-trunc in container id column)
+
+To stop the all containers
+
+docker stop $(docker ps -a -q)
+
+To delete the all containers
+
+docker rm $(docker ps -a -q)
