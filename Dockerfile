@@ -27,3 +27,19 @@ Adding content to /var/www of docker instance
 docker run -v /home/vagrant/apache2/html/:/var/www -p 8080:80 -d apache2
 
 This will bind to /home/vagrant/apache2/html to /var/www of docker instance
+
+To access to daemon container, you can use lxc-attach.
+
+If it is not installed in your system just type sudo apt-get install lxc.
+
+First step you will edit /etc/default/docker
+
+Add this line DOCKER_OPTS="-e lxc"
+
+then restart docker service as sudo service docker restart
+
+And the containers docker restart <container-id>
+
+To access to running container as a daemon, you will get the container id with docker ps --no-trunc
+
+Then lxc-attach -n <container id> (which is comming from docker ps --no-trunc in container id column)
