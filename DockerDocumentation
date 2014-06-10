@@ -1,3 +1,14 @@
+Install the docker
+
+sudo apt-get install docker lxc-docker
+
+or 
+
+sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
+sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+sudo apt-get update
+sudo apt-get install lxc-docker
+
 Create a Dockefile and add the those lines;
 ----------------------------------
 FROM ubuntu:12.04
