@@ -245,3 +245,5 @@ knife cookbook upload apache-tutorial-1
 ```
 chef-client
 ```
+
+####Then you will see the Hello World Page in http://chefclienthost
