@@ -1,3 +1,4 @@
+```python
 #!/usr/bin/env python
 
 from itertools import izip, cycle
@@ -15,3 +16,4 @@ def xor_crypt_string(data, key='myprivatekey', encode=False, decode=False):
 secret_data = 'fatih'
 print xor_crypt_string(secret_data, encode=True) 
 #print xor_crypt_string(xor_crypt_string(secret_data, encode=True), decode=True)
+```
