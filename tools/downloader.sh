@@ -1,4 +1,4 @@
-path = /Users/erkoc/Desktop/all/Works/tips/tools/indirilenler
+path=/Users/erkoc/Desktop/all/Works/tips/tools/indirilenler
 
 echo "Youtube Downloader Hosgeldiniz"
 while true; do
@@ -9,14 +9,14 @@ while true; do
            then
             echo "Lutfen indirilecek yerin yolunu veriniz"
             read path
-            echo path = "$path" | cat - $0 > temp && mv temp $0
+            echo path="$path" | cat - $0 > temp && mv temp $0
            fi
            echo "Lutfen indirilecek linki giriniz"
            read link
            echo "Sarkilar Indirilmeye baslaniyor"
-           youtube-dl -o "$path/%(title)s.%(ext)s" -x --audio-format mp3 $link
+           youtube-dl -o "$path/%(title)s.%(ext)s" -x --audio-format mp3 $link > /dev/null
             ;;
-        2) ls $path | tr -d ' ' | nl -nrz -w2
+        2) ls "$path" | tr -d ' ' | nl -nrz -w2
             ;;
         3) break
             ;;
