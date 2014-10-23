@@ -13,12 +13,14 @@ while true; do
            fi
            echo "Lutfen indirilecek linki giriniz"
            read link
-           echo "Sarkilar Indirilmeye baslaniyor"
+           echo "Sarkilar Indirilmeye baslaniyor, lutfen bekleyiniz"
            youtube-dl -o "$path/%(title)s.%(ext)s" -x --audio-format mp3 $link > /dev/null
             ;;
         2) ls "$path" | tr -d ' ' | nl -nrz -w2
             ;;
         3) break
+            ;;
+        *) echo "Yanlis bir secim girdiniz"
             ;;
     esac
 done
