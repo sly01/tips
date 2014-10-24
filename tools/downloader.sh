@@ -1,5 +1,5 @@
 path=/Users/erkoc/Desktop/all/Works/tips/tools/indirilenler
-echo "Dependencyler kontrol ediliyor. Lutfen bekleyiniz"
+echo "Paketler kontrol ediliyor. Lutfen bekleyiniz"
 paket1="youtube-dl"
 paket2="boxes"
 if [ ! $(brew list | grep $paket1) ] && [ ! $(brew list | grep $paket2) ]
@@ -23,9 +23,12 @@ while true; do
            echo "Lutfen indirilecek linki giriniz"
            read link
            echo "Sarkilar Indirilmeye baslaniyor, lutfen bekleyiniz"
+           sleep 3
            if [ $(echo $link | grep list | cut -d "&" -f2) ]
             then
-                youtube-dl -cit -o "$path/%(title)s.%(ext)s" -x --audio-format mp3 $link 
+                echo "Listelerde ki sarkilar indiriliyor"
+                youtube-dl -cit  -x --audio-format mp3 $link > /dev/null
+                /bin/mv *.mp3 $path
             else
                 youtube-dl -o "$path/%(title)s.%(ext)s" -x --audio-format mp3 $link > /dev/null
             fi
