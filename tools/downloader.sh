@@ -7,7 +7,7 @@ then
     brew install youtube-dl
     brew install boxes
 else
-    echo "Paketler zaten yuklu moruk :)"
+    echo "Paketler zaten yuklu"
 fi
 echo "Youtube Downloader Hosgeldiniz"
 while true; do
