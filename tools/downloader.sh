@@ -1,17 +1,16 @@
-path=/Users/erkoc/Desktop/all/Works/tips/tools/indirilenler
+path=/Users/erkoc/Desktop/tips/tools/indirilenler
+
 echo "Paketler kontrol ediliyor. Lutfen bekleyiniz"
 paket1="youtube-dl"
-paket2="boxes"
-if [ ! $(brew list | grep $paket1) ] && [ ! $(brew list | grep $paket2) ]
+if [ ! $(brew list | grep $paket1) ]
 then
     brew install youtube-dl
-    brew install boxes
 else
     echo "Paketler zaten yuklu"
 fi
 echo "Youtube Downloader Hosgeldiniz"
 while true; do
-    echo -e "1-Mp3 Indir\n2-Indirilenleri Listele\n3-Cikis Yap" | boxes
+    echo -e "1-Mp3 Indir\n2-Indirilenler Listesi\n3-Cikis Yap"
     read secim
     case $secim in
         1) if [ ! "$(head -n1 $0)" ]
@@ -32,6 +31,7 @@ while true; do
             else
                 youtube-dl -o "$path/%(title)s.%(ext)s" -x --audio-format mp3 $link > /dev/null
             fi
+            echo "Indirmeler tamamlandi"
             ;;
         2) ls "$path" | tr -d ' ' | nl -nrz -w2
             ;;
