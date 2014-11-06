@@ -1,4 +1,5 @@
-For linux(debian/ubuntu) users
+####For linux(debian/ubuntu) users
+```
 sudo apt-get install nginx
 
 Docroot: /usr/share/nginx/www
@@ -17,3 +18,4 @@ fastcgi_pass 127.0.0.1:9000;
 fastcgi_index index.php;
 include fastcgi_params;
 }
+```
