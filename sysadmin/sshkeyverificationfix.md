@@ -1,1 +1,0 @@
-ssh-keygen -R <host>
