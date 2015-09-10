@@ -1,3 +1,3 @@
-edit /etc/vsftpd.conf
-
-uncomment write_enable=YES line
+	edit /etc/vsftpd.conf
+	
+	uncomment write_enable=YES line
