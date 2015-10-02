@@ -1,4 +1,3 @@
-##Splunk Installation
 
 **1-First step downloading deb package from splunk web page**
 
