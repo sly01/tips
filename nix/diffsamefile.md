@@ -1,1 +1,1 @@
-    diff -sqr dir1 di2 | grep identical
+    diff -sqr dir1 dir2 | grep identical
