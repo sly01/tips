@@ -1,0 +1,19 @@
+dn: dc=erkoc,dc=net
+objectClass: top
+objectClass: dcObject
+objectclass: organization
+o: erkoc
+dc: erkoc
+
+dn: cn=admin,dc=erkoc,dc=net
+objectClass: organizationalRole
+cn: Admin
+description: Directory Manager
+
+dn: ou=People,dc=erkoc,dc=net
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc=erkoc,dc=net
+objectClass: organizationalUnit
+ou: Group
