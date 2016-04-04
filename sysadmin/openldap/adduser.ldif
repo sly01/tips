@@ -1,0 +1,14 @@
+# 500 - adminusers 501 - normalusers
+dn: cn=ldapuser3,ou=People,dc=erkoc,dc=net
+givenName: ldapuser3
+sn: ldapuser3
+cn: ldapuser3
+uid: ldapuser3
+userPassword: {SSHA}zh5AmRQzf7csrJyEzpLxocdSD9AEOpwi
+uidNumber: 1002
+gidNumber: 500
+homeDirectory: /home/users/ldapuser3
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+loginShell: /bin/bash
