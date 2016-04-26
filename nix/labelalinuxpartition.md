@@ -4,6 +4,8 @@
     or
     mount -l (end of the line you will see labels)
 
+    #First umount the partition that you will create a label for it.
+
     #Creating label for ext2,ext3,ext4
     e2label -L <labelname> /dev/<sda,sdb,...>
 
