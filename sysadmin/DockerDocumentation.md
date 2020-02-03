@@ -1,4 +1,4 @@
-####Install the docker
+#### Install the docker
 
 ```
 sudo apt-get install docker lxc-docker
@@ -30,7 +30,7 @@ ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["-D", "FOREGROUND"]
 ------------------------------------
 
-####then execute those commands
+#### then execute those commands
 
 ```
 docker build -t="apache2" .
@@ -41,7 +41,7 @@ docker run -p 8080:80 -d apache2
 **That is for running apache  under docker instance. The local host machine 8080 will be bind docker instance 80 port.**
 **When you type your host machine ip and forwarded port in browser you will see the it works default page of apache2.**
 
-#####Adding content to /var/www of docker instance 
+##### Adding content to /var/www of docker instance 
 
 ```
 docker run -v /home/vagrant/apache2/html/:/var/www -p 8080:80 -d apache2
