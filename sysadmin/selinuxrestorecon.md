@@ -1,0 +1,1 @@
+	restorecon -Rv <path>

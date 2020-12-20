@@ -1,0 +1,3 @@
+```
+gnome-screensaver-command -l
+```
