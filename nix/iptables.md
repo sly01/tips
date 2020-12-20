@@ -1,0 +1,44 @@
+```
+ssh test.com -l root -D8080 -v -p 443(ssh tunelling)
+
+IPTABLES
+
+FILTER(filtreleme)
+ INPUT
+ OUTPUT
+ FORWARD
+NAT(network adres transfers )
+ OUTPUT
+ PREROUTING
+ POSTROUTING
+MANGLE(bandwith kisma qos)
+ OUTPUT
+ PREROUTING
+
+
+ iptables -t (filter,nat,mangle) -L    default policy accept !''
+ iptables -t filter -I INPUT -p tcp --destination 172.16.212.148 --dport 22 --source 172.16.212.1 -j (DROP,REJECT,ACCEPT)
+ iptables -F butun custom olusturulan zincirleri siler
+ iptables -t filter -F INPUT filterdaki input kurallarini siler
+ iptables -t filter -P INPUT DROP default policy drop yapar
+ iptables -t filter -L INPUT sadece filterdaki inputlarin kurallari hakkinda bilgi verir
+ iptables -t filter -L INPUT -p tcp !--destination 172.16.212.148 --dport 22 --source 172.16.212.1 -j DROP unlem degilini isaret eder
+
+ cat /proc/sys/net/ipv4/ip_forward ----> 0 ise routing islemi yapamayiz
+ echo 1 > /proc/sys/net/ipv4/ip_forward —> router islemini aktif eder
+ veya /etc/sysctl.conf altindaki net.ipv4.ip_forward=1 olmali
+
+ control-r geriye dogru arama yapabilirsin terminal icin
+
+ iptables -t filter -N benimguzelzincirim
+ iptables -t filter -I INPUT --source 172.16.212.1 -p tcp --dport 22 -j benimguzelzincirim
+ iptables -t filter -L goruntuleme islemini gerceklestirir
+ iptables -t filter -I benimguzelzincirim -j ACCEPT
+ iptables -A INPUT --destination 172.16.212.148 --source 172.16.212.1 -p tcp --dport 22 -i lo -j DROP loopback interfacesi icin yazilmistir
+ iptables -t filter -A benimguzelzincirim -j RETURN beniguzelzincirim kurali uyarsa tum custom zincirleri beklemeden return yap geldigi yere tekrar doner
+ iptables -X  olusturulan custom chainleri ucurur
+
+ iptables -t nat -I POSTROUTING -s 10.0.0.2 -j SNAT --to 172.16.212.144 (nat olayi)
+
+ iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE (maskeleme olayi modemimiz boyle yapiyor)
+ ```

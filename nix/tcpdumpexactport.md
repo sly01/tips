@@ -1,0 +1,3 @@
+```
+tcpdump port <portnumber>
+```
