@@ -1,3 +1,0 @@
-```
-try_files $uri $uri/ /index.php?$args;
-```
