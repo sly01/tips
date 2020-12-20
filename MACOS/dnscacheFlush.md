@@ -1,1 +1,3 @@
+```
 dscacheutil -flushcache
+```

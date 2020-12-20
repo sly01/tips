@@ -1,32 +1,33 @@
-###Installing HAProxy on Ubuntu
+### Installing HAProxy on Ubuntu
 
-####To install the HAProxy
+#### To install the HAProxy
 
 ```
 sudo apt-get install haproxy
 ```
 
-####Then need to enable to start by init script.
+#### Then need to enable to start by init script.
 **Edit ENABLED=1**
 
 ```
 vi /etc/default/haproxy
 ```
-####To start the HAProxy
+
+#### To start the HAProxy
 
 ```
 service haproxy start
 ```
 
-###Let's assume you will Set Up HTTP Load Balancing
+### Let's assume you will Set Up HTTP Load Balancing
 
 **Let's say there are 3 machines**
 
 1. HAProxy Server (Hostname: loadbalancer Os:Ubuntu ip:10.0.47.4)
-2. Nginx Application Server (Hostname: www1 Os: ubuntu ip: 10.0.47.5) 
+2. Nginx Application Server (Hostname: www1 Os: ubuntu ip: 10.0.47.5)
 3. Nginx Application Server (Hostname: www2 Os: ubuntu ip: 10.0.47.6)
 
-####Configuring HAProxy
+#### Configuring HAProxy
 
 **Move default configuration like this**
 
@@ -91,6 +92,7 @@ echo "\nClient IP: ".$_SERVER['REMOTE_ADDR'];
 echo "\nX-Forwarded-for: ".$_SERVER['HTTP_X_FORWARDED_FOR'];
 ?>
 ```
+
 **Then make some request from loadbalancer for file.php**
 
 ```
@@ -118,4 +120,4 @@ X-Forwarded-for: 192.168.1.22
 So on
 ```
 
-####The stats directives enable the connection statistics page and protects it with HTTP Basic authentication using the credentials specified by the stats auth directive in haproxy.conf. Take a look http://10.0.47.4/haproxy?stats.
+#### The stats directives enable the connection statistics page and protects it with HTTP Basic authentication using the credentials specified by the stats auth directive in haproxy.conf. Take a look http://10.0.47.4/haproxy?stats.

@@ -1,3 +1,4 @@
+```
 ssh test.com -l root -D8080 -v -p 443(ssh tunelling)
 
 IPTABLES
@@ -40,3 +41,4 @@ MANGLE(bandwith kisma qos)
  iptables -t nat -I POSTROUTING -s 10.0.0.2 -j SNAT --to 172.16.212.144 (nat olayi)
 
  iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE (maskeleme olayi modemimiz boyle yapiyor)
+ ```

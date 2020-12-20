@@ -1,10 +1,10 @@
-####Installing s3cmd and configuration
+#### Installing s3cmd and configuration
 
 ```
 sudo pip install s3cmd
 ```
 
-#####For the first time you should configure
+##### For the first time you should configure
 
 ```
 s3cmd --configure
@@ -20,6 +20,7 @@ s3cmd ls
 ```
 
 **To list the specific bucket.**
+
 ```
 s3cmd ls s3://bucket_name
 

@@ -4,7 +4,7 @@ fdisk: cannot open /dev/sdc: Input/output error
 
 Take look from multipah -ll;
 multipath -ll
-3600601602e11230062070f7f96fde511 dm-2 DGC     ,RAID 10         
+3600601602e11230062070f7f96fde511 dm-2 DGC     ,RAID 10
 size=250G features='2 queue_if_no_path retain_attached_hw_handler' hwhandler='1 emc' wp=rw
 |-+- policy='service-time 0' prio=4 status=active
 | `- 4:0:0:0 sdb 8:16 active ready running
@@ -13,12 +13,12 @@ size=250G features='2 queue_if_no_path retain_attached_hw_handler' hwhandler='1 
 
 Edit /etc/multipath.conf;
 
-vi /etc/multipath.conf 
+vi /etc/multipath.conf
 multipaths {
     multipath {
             wwid        3600601602e11230062070f7f96fde511
                     alias       DP5_R10_1
-                        
+
     }
 
 }
@@ -52,10 +52,10 @@ Disk identifier: 0xdb61510d
                     p   primary (0 primary, 0 extended, 4 free)
                        e   extended
                        Select (default p): p
-                       Partition number (1-4, default 1): 
-                       First sector (2048-524287999, default 2048): 
+                       Partition number (1-4, default 1):
+                       First sector (2048-524287999, default 2048):
                        Using default value 2048
-                       Last sector, +sectors or +size{K,M,G} (2048-524287999, default 524287999): 
+                       Last sector, +sectors or +size{K,M,G} (2048-524287999, default 524287999):
                        Using default value 524287999
                        Partition 1 of type Linux and of size 250 GiB is set
 

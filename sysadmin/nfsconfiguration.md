@@ -1,4 +1,5 @@
-####In the server part
+#### In the server part
+
 ```
 1-apt-get install nfs-common-kernel
 
@@ -6,6 +7,7 @@
 
 /sharingDirectory 	ipRangeWhichWillAccesstheThisDirectory
 ```
+
 **Example**
 
 ```
@@ -16,7 +18,7 @@ This will share home directory for 192.168.2.0/24
 /etc/init.d/nfs-kernel-server restart
 ```
 
-####In the client part
+#### In the client part
 
 ```
 For linux users
@@ -30,4 +32,4 @@ sudo mount_nfs -o resvport(for security reason) serverip:/sharingDirectory /moun
 
 **For umount just type**
 
-*sudo umount /mountedPoint*
+_sudo umount /mountedPoint_

@@ -1,4 +1,4 @@
-####Elasticsearch-Fluent-Kibana Installation
+#### Elasticsearch-Fluent-Kibana Installation
 
 **1- installing to java for elasticsearch**
 
@@ -7,7 +7,8 @@ sudo apt-get update
 sudo apt-get install openjdk-7-jre-headless --yes
 ```
 
-*Then verify installed java, output should be as follows*
+_Then verify installed java, output should be as follows_
+
 ```
 java -version
 
@@ -17,12 +18,13 @@ OpenJDK 64-Bit Server VM (build 24.51-b03, mixed mode)
 ```
 
 **2- Next, download and install Elasticsearch's deb package as follows**
+
 ```
 sudo wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.2.deb
 sudo dpkg -i elasticsearch-1.2.2.deb
 ```
 
-*Or another way of installing elasticsearch but note that may not be latest version*
+_Or another way of installing elasticsearch but note that may not be latest version_
 
 ```
 sudo get -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | sudo apt-key add
@@ -32,13 +34,16 @@ sudo apt-get update
 sudo apt-get install elasticsearch
 ```
 
-*For securing issue Elasticsearch*
+_For securing issue Elasticsearch_
 
 **Edit /etc/elasticsearch/elasticsearch.yml add this line**
+
 ```
 script.disable_dynamic: true
 ```
+
 **3- Then, start elasticsearch**
+
 ```
 sudo service elasticsearch start
 ```
@@ -50,22 +55,27 @@ cd /opt
 curl -L https://download.elasticsearch.org/kibana/kibana/kibana-3.1.0.tar.gz | tar xzf -
 sudo cp -r kibana-3.1.0 /usr/share/
 ```
-*Change this line in /usr/share/kibana-3.1.0/config.js*
+
+_Change this line in /usr/share/kibana-3.1.0/config.js_
+
 ```
 elasticsearch: "http://"+window.location.hostname+":80"
 ```
+
 **5- Installing and Configuring Nginx**
+
 ```
 sudo apt-get install nginx
 ```
 
-*Configuration nginx as a proxy server to serve dashboard to public internet*
+_Configuration nginx as a proxy server to serve dashboard to public internet_
+
 ```
 wget https://assets.digitalocean.com/articles/fluentd/nginx.conf
 sudo cp nginx.conf /etc/nginx/sites-available/default
 ```
 
-*Edit the nginx file which download from digitalocean as follow*
+_Edit the nginx file which download from digitalocean as follow_
 
 ```
 server {
@@ -79,16 +89,15 @@ server {
   }
 ```
 
-  *Then restart nginx*
-
+_Then restart nginx_
 
 ```
   sudo service nginx restart
 ```
-  **6- Installing and Configuration Fluentd**
 
-  *Installing Fluentd which is built and maintained by Treasure Data*
+**6- Installing and Configuration Fluentd**
 
+_Installing Fluentd which is built and maintained by Treasure Data_
 
 ```
   For ubuntu
@@ -104,7 +113,8 @@ server {
   sudo dpkg -i td-agent_2.1.1-0_amd64.deb
 
 ```
-  **From the apt repository**
+
+**From the apt repository**
 
 ```
   For Trusty,
@@ -127,24 +137,26 @@ server {
 
   curl -L http://toolbelt.treasuredata.com/sh/install-debian-squeeze-td-agent2.sh | sh
 ```
-  #####Note that first way is working more properly.The problem is that with the second way /etc/init.d/td-agent doesn't work !.
 
-  *Installing the plugins*
+##### Note that first way is working more properly.The problem is that with the second way /etc/init.d/td-agent doesn't work !.
 
-  **We need a couple of plugins:**
+_Installing the plugins_
 
-  *1.out_elasticsearch: this plugin lets Fluentd to stream data to Elasticsearch.*
+**We need a couple of plugins:**
 
-  *2.outrecordreformer: this plugin lets us process data into a more useful format.*
+_1.out_elasticsearch: this plugin lets Fluentd to stream data to Elasticsearch._
 
-  *3.S3:                this plugin lets us store data in amazon-s3 servers.*
+_2.outrecordreformer: this plugin lets us process data into a more useful format._
 
-  *For out_elasticsearch install make and curl as follows*
+_3.S3: this plugin lets us store data in amazon-s3 servers._
+
+_For out_elasticsearch install make and curl as follows_
 
 ```
   sudo apt-get install make libcurl4-gnutls-dev --yes
 ```
-  ###For Ubuntu installation
+
+### For Ubuntu installation
 
 ```
   libcurl could be problem then you need compile from source code as follow;
@@ -163,8 +175,7 @@ server {
 
 ```
 
-
-  *Configuration of fluentd for syslog and nginx access log and store localhost and amazon-s3 add those line to /etc/td-agent/td-agent.conf on the top*
+_Configuration of fluentd for syslog and nginx access log and store localhost and amazon-s3 add those line to /etc/td-agent/td-agent.conf on the top_
 
 ```
   <source>
@@ -214,25 +225,24 @@ server {
   </match>
 ```
 
-  **To check the syntax of td-agent conf**
+**To check the syntax of td-agent conf**
 
 ```
   sudo service td-agent configtest
 
 ```
 
-  **Starting fluentd**
+**Starting fluentd**
+
+```sudo service td-agent start
 
 ```
-  sudo service td-agent start
 
-```
+**Note that after editing the configuration file restart td-agent**
 
-  **Note that after editing the configuration file restart td-agent**
+**7- Forwarding syslog to Fluentd**
 
-  **7- Forwarding syslog to Fluentd**
-
-  *Add this line to /etc/rsyslog.conf*
+_Add this line to /etc/rsyslog.conf_
 
 ```
   Specified port in td-agent.conf for rsyslog -> Port
@@ -240,11 +250,11 @@ server {
 
 ```
 
-  *Then restart rsyslog take effect*
+_Then restart rsyslog take effect_
 
 ```
   sudo service rsyslog restart
 
 ```
 
-  #####Now when you got server ip you should see the dashboard.
+##### Now when you got server ip you should see the dashboard.

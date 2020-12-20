@@ -1,14 +1,14 @@
-####1-To install the Bind9 which is dns server,berkeley internet domain name
+#### 1-To install the Bind9 which is dns server,berkeley internet domain name
 
 ```
 For debian-ubuntu;
-apt-get install bind9  
+apt-get install bind9
 For redhat-centos
 yum install bind
 ```
 
+#### 2-Create db.test.com in /etc/bind/
 
-####2-Create db.test.com in /etc/bind/ 
 ```
 For debian-ubuntu;
 cd /etc/bind
@@ -18,7 +18,8 @@ cd /var/named
 cp named.empty db.test.com
 ```
 
-####3-Edit db.test.com
+#### 3-Edit db.test.com
+
 ```
 ;
 ; BIND data file for local loopback interface
@@ -31,7 +32,7 @@ $TTL 3D
                        2419200            ; expire, seconds
                        86400 )          ; minimum, seconds
 ;
-                NS      deb6;           
+                NS      deb6;
    		A       192.168.2.11;
 		MX      10	mail;
 		MX	100	mail2;
@@ -39,7 +40,9 @@ deb6	A	192.168.2.11
 www	A	192.168.2.11
 www2	CNAME	www
 ```
-####4-edit /etc/bind/named.conf(debian-ubuntu) - /etc/named.conf(redhat-centos)
+
+#### 4-edit /etc/bind/named.conf(debian-ubuntu) - /etc/named.conf(redhat-centos)
+
 ```
 For debian-ubuntu;
 
@@ -57,20 +60,24 @@ zone "test.com"{
 
 ```
 
-####5-Check named.conf is Ok ?
+#### 5-Check named.conf is Ok ?
+
 ```
 named-checkconf named.conf
 ```
-####6-Edit your nameserver
+
+#### 6-Edit your nameserver
+
 ```
 vi /etc/resolv.conf
 nameserver 127.0.0.1 -> your bind server
 ```
 
-####7-Then start the bind9
+#### 7-Then start the bind9
+
 ```
 For debian-bind;
-/etc/init.d/bind9 reload 
+/etc/init.d/bind9 reload
 For redhat-centos;
 service named start
 ```

@@ -1,5 +1,4 @@
-
-####Nginx Maintenance Page
+#### Nginx Maintenance Page
 
 ```
 server {

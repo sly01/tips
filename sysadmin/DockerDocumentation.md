@@ -3,15 +3,16 @@
 ```
 sudo apt-get install docker lxc-docker
 
-or 
+or
 
 sudo sh -c "curl https://get.docker.io/gpg | apt-key add -"
 sudo sh -c "echo deb http://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
 sudo apt-get update
 sudo apt-get install lxc-docker
 ```
-Create a Dockefile and add the those lines;
-----------------------------------
+
+## Create a Dockefile and add the those lines;
+
 ```
 FROM ubuntu:12.04
 
@@ -27,8 +28,8 @@ EXPOSE 80
 ENTRYPOINT ["/usr/sbin/apache2"]
 
 ```
-CMD ["-D", "FOREGROUND"]
-------------------------------------
+
+## CMD ["-D", "FOREGROUND"]
 
 #### then execute those commands
 
@@ -38,10 +39,11 @@ docker build -t="apache2" .
 docker run -p 8080:80 -d apache2
 
 ```
-**That is for running apache  under docker instance. The local host machine 8080 will be bind docker instance 80 port.**
+
+**That is for running apache under docker instance. The local host machine 8080 will be bind docker instance 80 port.**
 **When you type your host machine ip and forwarded port in browser you will see the it works default page of apache2.**
 
-##### Adding content to /var/www of docker instance 
+##### Adding content to /var/www of docker instance
 
 ```
 docker run -v /home/vagrant/apache2/html/:/var/www -p 8080:80 -d apache2
@@ -53,11 +55,9 @@ docker run -v /home/vagrant/apache2/html/:/var/www -p 8080:80 -d apache2
 
 **If it is not installed in your system just type sudo apt-get install lxc.**
 
-*First step you will edit /etc/default/docker*
+_First step you will edit /etc/default/docker_
 
-
-*Add this line DOCKER_OPTS="-e lxc"*
-
+_Add this line DOCKER_OPTS="-e lxc"_
 
 **then restart docker service as sudo service docker restart**
 

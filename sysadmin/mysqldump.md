@@ -1,24 +1,24 @@
 ```
 #!/bin/bash
 
- 
+
 
 tarih=$(date +"%Y%m%d-%H%M")
 
 #echo $tarih
 
- 
+
 
 # Our Base backup directory
 
 BASEBACKUP="/var/www/mysqlbackup"
 
- 
+
 
 mysql --user=backupadm --password=password -e 'show
 databases' | grep -v '^Database$'>/var/www/mysqlbackup/db-list.txt
 
- 
+
 
 for DATABASE in `cat /var/www/mysqlbackup/db-list.txt`
 
@@ -28,7 +28,7 @@ do
 
         FILEDIR="$BASEBACKUP/$DATABASE"
 
- 
+
 
         # Test to see if our backup directory exists.
 
@@ -42,18 +42,18 @@ do
 
         fi
 
- 
+
 
 #        echo -n "Exporting database:  $DATABASE"
 
         mysqldump -uroot -pSecret --opt --single-transaction $DATABASE |
 gzip -c -9 > $FILEDIR/$DATABASE-$tarih.sql.gz
 
- 
+
 
 done
 
- 
+
 
 # AutoPrune our backups.  This will find all files
 

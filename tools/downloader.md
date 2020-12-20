@@ -1,3 +1,4 @@
+```bash
 path=/Users/erkoc/Desktop/tips/tools/indirilenler
 
 echo "Paketler kontrol ediliyor. Lutfen bekleyiniz"
@@ -41,3 +42,4 @@ while true; do
             ;;
     esac
 done
+```

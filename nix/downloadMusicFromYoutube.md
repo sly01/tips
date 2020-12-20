@@ -1,4 +1,4 @@
-##On Linux
+## On Linux
 
 ```
 sudo apt-get install youtube-dl
@@ -6,7 +6,7 @@ sudo apt-get install youtube-dl
 youtube-dl <youtubeURL>
 ```
 
-##On Mac
+## On Mac
 
 ```
 brew install youtube-dl
@@ -22,13 +22,13 @@ ffmpeg -i filename.mp4 filename.mp3
 
 *If you haven't already install ffmpeg*
 
-######On Linux
+###### On Linux
 
 ```
 sudo apt-get install ffmpeg
 ```
 
-######On Mac
+###### On Mac
 
 ```
 brew install ffmpeg

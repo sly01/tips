@@ -1,4 +1,4 @@
-####To Disable Postfix Dns lookup
+#### To Disable Postfix Dns lookup
 
 ```
 Add this line to /etc/postfix/main.cf

@@ -1,11 +1,14 @@
-###Server Installation
+### Server Installation
 
-####To add Chef repo
+#### To add Chef repo
+
 ```
 $ echo "deb http://apt.opscode.com/ `lsb_release -cs`-0.10 main" | \
     sudo tee /etc/apt/sources.list.d/opscode.list
 ```
-####Add GPG Key
+
+#### Add GPG Key
+
 ```
 $ sudo mkdir -p /etc/apt/trusted.gpg.d
 $ gpg --keyserver keys.gnupg.net --recv-keys 83EF826A
@@ -13,21 +16,24 @@ $ gpg --export packages@opscode.com | sudo tee \
     /etc/apt/trusted.gpg.d/opscode-keyring.gpg > /dev/null
 ```
 
-####If you have problem in above step
+#### If you have problem in above step
+
 ```
 $ gpg --fetch-key http://apt.opscode.com/packages@opscode.com.gpg.key
 $ gpg --export packages@opscode.com | sudo tee \
     /etc/apt/trusted.gpg.d/opscode-keyring.gpg > /dev/null
 ```
 
-####To active the Opscode Repo and Update the package
+#### To active the Opscode Repo and Update the package
 
 ```
 $ sudo apt-get update
 $ sudo apt-get install opscode-keyring
 $ sudo apt-get upgrade
 ```
-####To install the Chef Package
+
+#### To install the Chef Package
+
 ```
 $ sudo apt-get install chef chef-server
 ```
@@ -71,13 +77,14 @@ Created client[ubuntu]
 Configuration file written to /root/.chef/knife.rb
 ```
 
-####To verify knife client configuration
+#### To verify knife client configuration
 
 ```
 knife client list
 ```
 
-####Create a user for workstation(your computer)
+#### Create a user for workstation(your computer)
+
 ```
 root@chefserver:/home/ubuntu# knife client create username -d -a -f /tmp/username.pem
 Created client[username]
@@ -89,19 +96,21 @@ Created client[username]
 knife client show username
 ```
 
-####Copy key and configure knife in workstation(your local computer)
+#### Copy key and configure knife in workstation(your local computer)
 
 ```
 mkdir ~/.chef
 scp chef-server.example.com:/tmp/username.pem ~/.chef/username.pem
 ```
 
-####To install Knife to your computer
+#### To install Knife to your computer
+
 ```
 $ sudo gem install chef
 ```
 
-####Knife Configuration
+#### Knife Configuration
+
 ```
 knife configure
 ```
@@ -115,6 +124,7 @@ Please enter the validation clientname: [chef-validator]
 Please enter the location of the validation key: [/etc/chef-server/chef-validator.pem]
 Please enter the path to a chef repository (or leave blank):
 ```
+
 **To verify Configuration**
 
 ```
@@ -125,10 +135,12 @@ knife client list
 knife client show chef-validator
 ```
 
-####Chef Client Installation
+#### Chef Client Installation
+
 ```
 $ echo "deb http://apt.opscode.com/ `lsb_release -cs`-0.10 main" | \ sudo tee /etc/apt/sources.list.d/opscode.list
 ```
+
 ```
 $ sudo mkdir -p /etc/apt/trusted.gpg.d
 $ gpg --keyserver keys.gnupg.net --recv-keys 83EF826A
@@ -141,25 +153,28 @@ $ sudo apt-get update
 $ sudo apt-get install opscode-keyring
 $ sudo apt-get upgrade
 ```
-####To install the Chef Package
+
+#### To install the Chef Package
+
 ```
 $ sudo apt-get install chef
 ```
 
 **After that chef-server url asked**
 
-####Client Configuration
+#### Client Configuration
 
 ```
 $ sudo mkdir -p /etc/chef
 ```
 
-####Copy the validation.pem from chef-server to chef-client
+#### Copy the validation.pem from chef-server to chef-client
+
 ```
 root@chefclient:/etc/chef# scp root@10.0.47.10:/etc/chef/validation.pem .
 ```
 
-####Create client.rb
+#### Create client.rb
 
 ```
 $ knife configure client ./
@@ -176,7 +191,7 @@ chef_server_url  'http://yourchefserver.com:4000'
 validation_client_name 'chef-validator'
 ```
 
-####If everythin is finished then 
+#### If everything is finished then
 
 ```
 sudo chef-client
@@ -188,13 +203,14 @@ sudo chef-client
 ```
 knife cookbook create apache-tutorial-1
 ```
+
 **Then show cookbook verify it created**
 
 ```
 knife cookbook list
 ```
 
-*If it is not exist*
+_If it is not exist_
 
 **Then configure ./chef/knife.rb**
 
@@ -205,7 +221,7 @@ cookbook_path [ '~/cookbooks/', '~/base-cookbooks/']
 
 ```
 vi cookbooks/apache-tutorial-1/recipes/default.rb
-Add those lines 
+Add those lines
 
 package 'apache2' do
   action :install
@@ -224,7 +240,7 @@ end
 
 ```
 vi cookbooks/apache-tutorial-1/files/default/index.html
-Add those lines 
+Add those lines
 
 <html>
 <body>
@@ -238,12 +254,12 @@ Add those lines
 knife cookbook upload apache-tutorial-1
 ```
 
-####Then go to chef-server panel and add the recipes to client run list
+#### Then go to chef-server panel and add the recipes to client run list
 
-####After that go to client 
+#### After that go to client
 
 ```
 chef-client
 ```
 
-####Then you will see the Hello World Page in http://chefclienthost
+#### Then you will see the Hello World Page in http://chefclienthost

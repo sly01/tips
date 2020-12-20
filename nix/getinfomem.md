@@ -1,3 +1,4 @@
+```python
 #!/usr/bin/python
 
 import subprocess
@@ -34,3 +35,4 @@ print 'Active Memory:\t\t%d MB' % ( vmStats["Pages active"]/1024/1024 )
 print 'Inactive Memory:\t%d MB' % ( vmStats["Pages inactive"]/1024/1024 )
 print 'Free Memory:\t\t%d MB' % ( vmStats["Pages free"]/1024/1024 )
 print 'Real Mem Total (ps):\t%.3f MB' % ( rssTotal/1024/1024 )
+```

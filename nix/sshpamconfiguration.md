@@ -1,5 +1,5 @@
-    #First check pam module is enabled or not 
-    
+    #First check pam module is enabled or not
+
     ldd /{,usr/}{bin,sbin}/* | grep -B 5 libpam | grep '^/'
 
     #Add those lines to /etc/pam.d/sshd

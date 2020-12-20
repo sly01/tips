@@ -1,18 +1,20 @@
-###On Linux
+### On Linux
+
 ```
 sudo apt-get install python-pip mplayer
 ```
+
 ```
 sudo pip install mps-youtube
 ```
 
-###On MacOs X
+### On MacOs X
 
 ```
-brew install python 
+brew install python
 ```
 
-#####or
+##### or
 
 ```
 easy_install pip
@@ -26,19 +28,19 @@ brew install mplayer
 sudo pip install mps-youtube
 ```
 
-####Finally
+#### Finally
 
 ```
 mpsyt
 ```
 
-* To make a search
+- To make a search
 
 **/searchingword**
 
-* To play the music just select the number of it from list.
+- To play the music just select the number of it from list.
 
-* To open video features
+- To open video features
 
 ```
 set show_video true

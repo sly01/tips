@@ -43,7 +43,7 @@ AllowUnauthenticated=yes
 
 **After upgrading your os then remove that file**
 
-**Now you are ready to upgrade **
+**Now you are ready to upgrade**
 
 ```
  do-release-upgrade

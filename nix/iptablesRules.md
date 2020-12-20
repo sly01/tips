@@ -1,3 +1,4 @@
+```bash
 #!/bin/bash
 #clear iptables
 iptables -F
@@ -31,3 +32,4 @@ iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
 #drop anything that doesnt match the rules above
 iptables -A INPUT -j DROP
 iptables -A OUTPUT -j DROP
+```

@@ -1,4 +1,4 @@
-####Edit /etc/dhcp/dhclient.conf like this
+#### Edit /etc/dhcp/dhclient.conf like this
 
 **Uncomment that line**
 

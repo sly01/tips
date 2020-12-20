@@ -1,4 +1,4 @@
-####To get screenshot in i3wm
+#### To get screenshot in i3wm
 
 **First install scrot package which is for capturing screen**
 
